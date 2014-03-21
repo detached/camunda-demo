@@ -20,4 +20,5 @@ Get this up and running on Jboss 7:
 
 
 * Add the _camunda-engine-cdi-7.0.0-Final.jar_ as Jboss module
-* Add in the module.xml of  _org.camunda.bpm.jboss.camunda-jboss-subsystem_ add a dependency to the cdi module
+* In the _module.xml_ of  _org.camunda.bpm.jboss.camunda-jboss-subsystem_ add a dependency to the cdi module
+* Restart the server
