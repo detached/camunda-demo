@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="PersistOrderServiceService" targetNamespace="http://soap.demo.devcamp.w3is.de/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.demo.devcamp.w3is.de/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:message name="persistOrder">
+    <wsdl:part name="firstName" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="lastName" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="order" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="orderId" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="persistOrderResponse">
+    <wsdl:part name="processId" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PersistOrderService">
+    <wsdl:operation name="persistOrder">
+      <wsdl:input message="tns:persistOrder" name="persistOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:persistOrderResponse" name="persistOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersistOrderServiceServiceSoapBinding" type="tns:PersistOrderService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="persistOrder">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="persistOrder">
+        <soap:body namespace="http://soap.demo.devcamp.w3is.de/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="persistOrderResponse">
+        <soap:body namespace="http://soap.demo.devcamp.w3is.de/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersistOrderServiceService">
+    <wsdl:port binding="tns:PersistOrderServiceServiceSoapBinding" name="PersistOrderServicePort">
+      <soap:address location="http://localhost:8080/devcamp-demo/PersistOrderService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
